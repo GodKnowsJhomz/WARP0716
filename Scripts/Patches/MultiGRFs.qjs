@@ -160,7 +160,7 @@ MultiGRFs.useINI = (callAddr, AddPak) =>
 	$$(_, 1.2, `Construct the function code`)
 	let parts =
 	[
-		ENTER(0x80, 0)                           //enter 80h, 0
+		ENTER(0x84, 0)                           //enter 84h, 0
 	+	PUSHAD                                   //pushad
 	+	PUSH(ROC.Kernel32)                       //push "KERNEL32"
 	+	CALL([ROC.GetModHandle])                 //call dword ptr [<&KERNEL32.GetModuleHandleA>]
@@ -181,6 +181,13 @@ MultiGRFs.useINI = (callAddr, AddPak) =>
 	+	TEST(EAX, EAX)                           //test eax, eax
 	+	JZ(Filler(1,1))                          //jz short _codeOver
 	+	MOV([EBP, -6], EAX)                      //mov dword ptr [ebp-6], eax
+	+	PUSH_STR("GetFileAttributesA")           //push "GetFileAttributesA" + jmp
+	+	MOV(EAX, EBX)                            //mov eax, ebx
+	+	PUSH_EAX                                 //push eax ; hModule
+	+	CALL(EDI)                                //call edi ; GetProcAddress
+	+	TEST(EAX, EAX)                           //test eax, eax
+	+	JZ(Filler(1,1))                          //jz short _codeOver
+	+	MOV([EBP, -0x84], EAX)                   //mov dword ptr [ebp-84h], eax ; GetFileAttributesA
 	+	XOR(EDX, EDX)                            //xor edx, edx
 
 	,//1
@@ -203,6 +210,12 @@ MultiGRFs.useINI = (callAddr, AddPak) =>
 	+	CMP(CX, [EBX])                           //cmp cx, word ptr [ebx]
 	+	POP(EDX)                                 //pop edx
 	+	JZ(Filler(4,1))                          //jz short _next
+	+	PUSH(EDX)                                //push edx
+	+	PUSH(EBX)                                //push ebx ; filename
+	+	CALL([EBP, -0x84])                       //call GetFileAttributesA (stdcall, cleans stack)
+	+	INC(EAX)                                 //inc eax (0 if was INVALID_FILE_ATTRIBUTES)
+	+	POP(EDX)                                 //pop edx
+	+	JZ(Filler(4,1))                          //jz short _next (skip nonexistent file)
 	+	PUSH(EDX)                                //push edx
 	+	PUSH(EBX)                                //push ebx
 	+	DGRF.MovFMgr                             //mov ecx, offset <g_fileMgr>
