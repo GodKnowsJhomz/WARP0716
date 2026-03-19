@@ -22,7 +22,8 @@
 *                                                                          *
 *   Author(s)     : Neo-Mind                                               *
 *   Created Date  : 2020-11-10                                             *
-*   Last Modified : 2024-08-09                                             *
+*   Last Modified : 2026-03-18                                             *
+*   Modified By   : CrazyBebop (CustomJobs compatibility fix)              *
 *                                                                          *
 \**************************************************************************/
 
@@ -71,43 +72,51 @@ IncreaseHairsLimit = function()
 	}
 
 	//
-	// Search for Hair Style vector-of-strings initialization for Male/Female Humans and Male/Female Dorams on UnknownNameFunction.
+	// Search for Hair Style vector-of-strings initialization for Male/Female Humans and Male/Female Dorams.
+	// These hook sites overlap with CustomJobs Phase 3 (palette/head table expansion).
+	// If CustomJobs already modified the bytes (PUSH cap + CALL replaced with JMP),
+	// we skip the resize hooks since CustomJobs already expanded capacity to MaxJob (10000).
 	//
 
 	let Code =
 		"50 6A 2B E8 ?? ?? ?? ?? 8B 06 C7 00 ?? ?? ?? ?? 8B 06 C7 40 04 ?? ?? ?? ?? 8B 06 C7 40 08 ?? ?? ?? ??";
 
 	const MaleHumanHairInitializationAddr = Exe.FindHex(Code);
-	if (MaleHumanHairInitializationAddr < 0)
-		throw Error("Failed to find Human (Male) hairstyle vector initialization.");
 
-	const FemaleHumanHairInitializationAddr = Exe.FindHex(Code, MaleHumanHairInitializationAddr + Code.byteCount(), MaleHumanHairInitializationAddr + 0x1F0);
-	if (FemaleHumanHairInitializationAddr < 0)
+	// If the human hair pattern is not found, CustomJobs Phase 3 already modified
+	// these bytes (same PUSH cap + CALL sites). Phase 3 expands table capacity to
+	// MaxJob (10000) which covers any hair limit. Skip ALL resize hooks.
+	const customJobsActive = Warp.GetPatchState("CustomJobs");
+
+	let FemaleHumanHairInitializationAddr = -1;
+	let MaleDoramHairInitializationAddr = -1;
+	let FemaleDoramHairInitializationAddr = -1;
+	let VectorResizeCallAddr = -1;
+
+	if (!customJobsActive)
 	{
-		throw Error("Failed to find Human (Female) hairstyle vector initialization.");
+		FemaleHumanHairInitializationAddr = Exe.FindHex(Code, MaleHumanHairInitializationAddr + Code.byteCount(), MaleHumanHairInitializationAddr + 0x1F0);
+		if (FemaleHumanHairInitializationAddr < 0)
+			throw Error("Failed to find Human (Female) hairstyle vector initialization.");
+
+		Code =
+			PUSH(EAX)
+		+   PUSH(DoramHairLimit)
+		+   CALL(ALLWC)
+		+   MOV(EAX, [ESI])
+		;
+
+		MaleDoramHairInitializationAddr = Exe.FindHex(Code, FemaleHumanHairInitializationAddr + Code.byteCount(), FemaleHumanHairInitializationAddr + 0x1D0);
+		if (MaleDoramHairInitializationAddr < 0)
+			throw Error("Failed to find Doram (Male) hairstyle vector initialization.");
+
+		FemaleDoramHairInitializationAddr = Exe.FindHex(Code, MaleDoramHairInitializationAddr + Code.byteCount(), MaleDoramHairInitializationAddr + 0x90);
+		if (FemaleDoramHairInitializationAddr < 0)
+			throw Error("Failed to find Doram (Female) hairstyle vector initialization.");
+
+		VectorResizeCallAddr = Exe.GetTgtAddr(MaleHumanHairInitializationAddr + PUSH(EAX).byteCount() + PUSH(HumanHairLimit).byteCount() + 1);
 	}
 
-	Code =
-		PUSH(EAX)
-	+   PUSH(DoramHairLimit)
-	+   CALL(ALLWC)
-	+   MOV(EAX, [ESI])
-	;
-
-	const MaleDoramHairInitializationAddr = Exe.FindHex(Code, FemaleHumanHairInitializationAddr + Code.byteCount(), FemaleHumanHairInitializationAddr + 0x1D0);
-	if (MaleDoramHairInitializationAddr < 0)
-	{
-		throw Error("Failed to find Doram (Male) hairstyle vector initialization.");
-	}
-
-	const FemaleDoramHairInitializationAddr = Exe.FindHex(Code, MaleDoramHairInitializationAddr + Code.byteCount(), MaleDoramHairInitializationAddr + 0x90);
-	if (FemaleDoramHairInitializationAddr < 0)
-	{
-		throw Error("Failed to find Doram (Female) hairstyle vector initialization.");
-	}
-
-	const VectorResizeCallAddr = Exe.GetTgtAddr(MaleHumanHairInitializationAddr + PUSH(EAX).byteCount() + PUSH(HumanHairLimit).byteCount() + 1);
-	
 	//
 	// Apply all changes.
 	//
@@ -117,9 +126,28 @@ IncreaseHairsLimit = function()
 		saveDefault: true,
 		max: 1000,
 	});
-	
+
 	if (MaxHair === false)
 		Cancel("Limit reverted to default");
+
+	//
+	// NOP out the limiters (always — no conflict with CustomJobs).
+	//
+
+	Exe.SetNOPs(DoramLimitAddr, DoramLimitPrefix.byteCount() + DoramLimitSuffix.byteCount());
+	Exe.SetNOPs(HumanLimitAddr, HumanLimitPrefix.byteCount() + HumanLimitSuffix.byteCount());
+
+	//
+	// If CustomJobs Phase 3 already expanded these tables, we're done.
+	// Only the limiter NOPs are needed — capacity is already sufficient.
+	//
+
+	if (customJobsActive)
+		return true;
+
+	//
+	// Hook the vector init sites (standalone mode — no CustomJobs).
+	//
 
 	const [HumanTarget, HumanTargetVirtual] = Exe.Allocate(this.TemplateInitializeHairStyle.byteCount() + 0x10, 0x10);
 	const [DoramTarget, DoramTargetVirtual] = Exe.Allocate(this.TemplateInitializeHairStyle.byteCount() + 0x10, 0x10);
@@ -167,17 +195,6 @@ IncreaseHairsLimit = function()
 		2: VectorResizeCallAddr
 	});
 
-	//
-	// NOP out the limiters.
-	//
-
-	Exe.SetNOPs(DoramLimitAddr, DoramLimitPrefix.byteCount() + DoramLimitSuffix.byteCount());
-	Exe.SetNOPs(HumanLimitAddr, HumanLimitPrefix.byteCount() + HumanLimitSuffix.byteCount());
-
-	//
-	// Prepare the hooking code.
-	//
-
 	Exe.SetNOPs(MaleHumanHairInitializationAddr, 8);
 	Exe.SetNOPs(FemaleHumanHairInitializationAddr, 8);
 	Exe.SetNOPs(MaleDoramHairInitializationAddr, 8);
@@ -211,14 +228,14 @@ IncreaseHairsLimit.init = function()
 		PUSH(EAX)
 	+   PUSH(Filler(1))
 	+   CALL(Filler(2))
-	
+
 	, // 1
 		MOV(ECX, ESI)
 	+   PUSHAD
 	+   PUSH(ESI)
 	+   MOV(EAX, Filler(3))
 	+   MOV(ESI, Filler(4))
-	
+
 	, // 2
 		MOV(EDX, [ECX])
 	+   MOV([EAX, EDX], ESI)

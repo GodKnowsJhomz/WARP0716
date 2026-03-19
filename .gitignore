@@ -3,7 +3,7 @@
 !/Outputs/.gitkeep
 
 # Ignore root-level config files
-/Settings.yml
+# Settings.yml is tracked so WARP0716 dark theme is default
 /LastSession.yml
 
 # Ignore Skipped Patches logs

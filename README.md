@@ -2,7 +2,7 @@
 
 WARP patches for the 2025-07-16 client build. This build of WARP **only accepts the 2025-07-16 client EXE** — it will reject any other version.
 
-18 patches fixed for 07-16 compatibility, 20+ dead patches removed, all patch descriptions rewritten, and CustomJobs fully implemented. **0 errors on all-patch test** (patches apply cleanly — does not guarantee every feature works as intended in-game; if you find something off, please [open an issue](https://github.com/CrazyBebop/WARP0716/issues)).
+19 patches fixed for 07-16 compatibility, 20+ dead patches removed, all patch descriptions rewritten, and Custom Jobs (Reforged) fully implemented with 19 binary phases. **0 errors on all-patch test** (patches apply cleanly — does not guarantee every feature works as intended in-game; if you find something off, please [open an issue](https://github.com/CrazyBebop/WARP0716/issues)).
 
 ## Setup
 
@@ -18,7 +18,7 @@ Click **"Recommended"** in the WARP GUI to select all recommended patches at onc
 
 ## What's New
 
-### Patch Fixes (18 patches fixed for 07-16)
+### Patch Fixes (19 patches fixed for 07-16)
 - **CallKoreaClientInfo** — Fixed pattern matching for 07-16
 - **NoEarthQuake** — Fixed string match hitting wrong target
 - **NoEquipWinTitle** — Window struct offsets shifted +0x20
@@ -33,9 +33,10 @@ Click **"Recommended"** in the WARP GUI to select all recommended patches at onc
 - **CustomIcon** — Rewritten to support any icon size/format
 - **NoGGuard** — Fixed RagHash.dat crash (stale file no longer crashes client)
 - **GRFsFromIni** — Fixed crash on invalid DATA.INI entries
+- **IncreaseHairsLimit** — Fixed compatibility with CustomJobs (both patches modify same memory)
 
-### CustomJobs — Implemented and Tested
-All job tables are now driven by Lua files — add custom jobs without binary patching. Covers job display names, male/female sprite paths, palette tables, and head sprite tables. Character creation, character select, and in-game rendering all working. More extensive community testing is still needed — please [report any issues](https://github.com/CrazyBebop/WARP0716/issues). See [`docs/CustomJobs/`](docs/CustomJobs/CUSTOM_JOBS_GUIDE.html) for a full guide with example files, or view online at [legacygamers.net/docs/public/customjobs](https://legacygamers.net/docs/public/customjobs/).
+### Custom Jobs (Reforged) — 19 Phases, Full Rewrite
+Add custom jobs to your server without binary patching — just edit 7 Lua files. Supports baby classes (0.75x scaling), multi-tier skill trees (like Night Watch), mount integration (Boarding Halter), and error display for Lua loading issues. Includes a working example with baby variant. See the [Custom Jobs Guide](docs/CustomJobs/CUSTOM_JOBS_GUIDE.html) or [view online](https://legacygamers.net/docs/public/customjobs-reforged/) for full setup instructions. For more details, read the [CHANGELOG.md](CHANGELOG.md). Please [report any issues](https://github.com/CrazyBebop/WARP0716/issues).
 
 ### Patches Not Needed on 07-16
 These are already handled or don't apply to this client version:
@@ -60,21 +61,16 @@ These are already handled or don't apply to this client version:
 
 ## Downloads
 
-**Full Client:** [2025-12-04 Client](https://drive.google.com/file/d/1ugolNYp6vQE0Hzmwuj359LbgcwraiZgu/view) (Provided by Skylove) — This is the last known working 2025 client. However, **Prontera map files are still needed**, along with the client executable linked below.
+You need these to set up a working client:
 
-**Client EXE:** [2025-07-16_Ragexe_175220998_clientinfo.zip](https://mirror2.romirrors.com/downloads/2025-07-16_Ragexe_175220998_clientinfo.zip) — Unpacked 2025-07-16 client EXE, ready for WARP patching.
+1. **Client + Data GRF:** [Client+Data.grf](https://drive.google.com/file/d/1ugolNYp6vQE0Hzmwuj359LbgcwraiZgu/view?usp=drive_link) (December 4th, 2025) — Provided by Skylove
+2. **Translation Project:** [llchrisll/ROenglishRE](https://github.com/llchrisll/ROenglishRE/) — Use the ClientGenerator, last option **[24] 2025-01-22**
+3. **Client EXE:** [2025-07-16_Ragexe_175220998_clientinfo.zip](https://mirror2.romirrors.com/downloads/2025-07-16_Ragexe_175220998_clientinfo.zip) — Unpacked EXE, ready for WARP patching
+4. **WARP** — Apply patches from this repo
 
-**Translation Project:** [llchrisll Translation Project](https://github.com/llchrisll/ROenglishRE/) — English translation for the client. Provides translated lua files and system files.
+Then create a `data/` folder or GRF with your server's custom content (JobInfo Lua files, job sprites, Prontera map files, etc.) and add it to `DATA.INI`. Enable the **DataFolderFirst** patch if using loose files in `data/`, or pack into a GRF.
 
-## GRF
-
-If you have your own client you wish to use, I recommend using this GRF:
-
-**Download:** [GRF Pack](https://drive.google.com/file/d/1ugolNYp6vQE0Hzmwuj359LbgcwraiZgu/view?usp=drive_link) (2025-12-04 by Skylove)
-
-Contains `data.grf` and `2025-06-04.grf` with lua files and map data. If you're using the [llchrisll Translation Project](https://llchrisll.github.io/ROTPDocs/), the lua files are **not needed** — the translation project provides its own.
-
-However, the Prontera map files (`prontera.gat`, `prontera.gnd`, `prontera.rsw`) **are required** regardless. They can be extracted from `2025-06-04.grf`, or use your own if you already have working Prontera map files. If placing them in your `data/` folder, enable the **DataFolderFirst** patch.
+**Note:** The Prontera map files (`prontera.gat`, `prontera.gnd`, `prontera.rsw`) are **required** regardless of setup. They can be extracted from the GRF in step 1, or use your own if you already have them.
 
 ## Issues & Suggestions
 
@@ -86,7 +82,9 @@ It is never required, but if you feel the need to contribute to the project fina
 
 <a href="https://www.buymeacoffee.com/crazybebop"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-blue.png" height="60" width="217" alt="Buy Me A Coffee"></a>
 
-Special thanks to the following donors so far: [saprobes](https://github.com/saprobes/), [Gerzzie](https://github.com/Gerzzie)
+**PayPal:** <a href="https://www.paypal.com/donate/?hosted_button_id=WW9FD6SLEZ5BN"><img src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" alt="Donate via PayPal"></a>
+
+Special thanks to the following donors so far: [saprobes](https://github.com/saprobes/), [Gerzzie](https://github.com/Gerzzie), [spike-ro](https://github.com/spike-ro)
 
 ## Credits
 

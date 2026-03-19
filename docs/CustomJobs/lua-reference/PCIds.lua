@@ -1,7 +1,7 @@
 --[[
 ****************************************************************************
 *                                                                          *
-*   Copyright (C) 2021-2023 Neo-Mind                                       *
+*   Copyright (C) 2021-2022 Neo-Mind                                       *
 *                                                                          *
 *   This file is a part of WARP project (specific to RO clients)           *
 *                                                                          *
@@ -324,6 +324,10 @@ PCIds =
 	-- Doram 2nd Classes --
 	-----------------------
 	SPIRIT_HANDLER   = 4308,
+
+	--------------------
+	-- Custom Classes --
+	--------------------
 }
 
 --[[

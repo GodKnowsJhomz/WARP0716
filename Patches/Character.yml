@@ -108,8 +108,9 @@ CustomChar:
         - IncreaseHairsLimit:
             title     : Increase Human/Doram Hair Limit (64K Hair Patch)
             recommend : no
-            author    : Neo-Mind ,Skylove
-            desc      : Raises the maximum hairstyle ID for Human and Doram characters up to 999. Otherwise known as the 64K Hair patch. Required for servers that add custom hairstyles beyond the default limit.
+            needs     : CustomJobs
+            author    : Neo-Mind ,Skylove ,CrazyBebop
+            desc      : Raises the maximum hairstyle ID for Human and Doram characters up to 999. Otherwise known as the 64K Hair patch. Required for servers that add custom hairstyles beyond the default limit. Compatible with CustomJobs — when both are enabled, CustomJobs handles table expansion and this patch only removes the hair limit checks.
 
 #IncrHairs:
 #    title : INCREASE HAIRS

@@ -1,20 +1,48 @@
-# CrazyBebop — 2025-07-16 build (Mar 13, 2026)
+# CrazyBebop — 2025-07-16 build (Mar 18, 2026)
+
+## Mar 18 Update
+
+### Custom Jobs (Reforged) — Major Update
+
+The Custom Jobs patch has been significantly expanded with 19 binary phases — all built from scratch for the 07-16 client. This update adds baby class support, multi-tier skill trees, mount integration, and much more.
+
+**What's new for server owners:**
+- **Baby class support** — Baby variants of custom jobs now render at 75% size, just like official baby classes. Add your baby job IDs to `Shrink_Map` in PCIds.lua
+- **Multi-tier skill trees** — Create job chains like Novice → 2nd Class → 3rd Class with proper tab merging. The first tab automatically combines Novice + base class skills (same behavior as Night Watch). Configure tiers in PCIds.lua via `JOB_SKILL_TIER`
+- **Mount support** — Custom jobs can use the Boarding Halter (item 12622). Define mount sprite IDs in `PCMounts` and `Halter_Table` in PCIds.lua
+- **Minimal Lua files** — Your Lua files only need custom job entries. Stock job data loads automatically from the GRF. All files use `Table = Table or {}` guards for safe additive loading
+- **Error display** — When Lua files fail to load, you now get clear error messages. Choose between Silent, Log File, or Popup mode via the WARP patch options
+- **Working example** — The `example/` folder and WARP Inputs include a complete EXAMPLE_JOB (ID 4435) with a baby variant (ID 4436), ready to copy into your client
+
+**Technical details:**
+- 19 binary phases covering: job name tables, sprite paths, palette/head expansion, bounds checking, sprite subtraction fix, null crash protection, Korean/English name display, range checks, Lua C API lookups, costume fallback, weapon sprites, and baby scaling
+- All Lua lookups use direct Lua C API calls at runtime, bypassing the broken `CLua::CallScriptFunction` in the 07-16 client
+- Palette and head sprite tables expanded to support up to 10,000 custom job classes
+- Costume_1 sprite files are required for custom jobs (client crashes without them after ~1 minute)
+- Dead code stripped from the patch script (3270 → 1950 lines, -40% smaller)
+- Patch renamed to "Enable Custom Jobs (Reforged)"
+
+**Guide:** See the [Custom Jobs Guide](docs/CustomJobs/CUSTOM_JOBS_GUIDE.html) or [online version](https://legacygamers.net/docs/public/customjobs-reforged/) for full setup instructions with examples.
+
+### IncreaseHairsLimit (64K Hair Patch) — Compatibility Fix
+- The hair limit patch now works alongside Custom Jobs without crashing
+- Previously, both patches modified the same memory locations, causing a conflict on startup
+- When Custom Jobs is enabled, the hair patch only removes the hair limit checks (Custom Jobs already handles table expansion). When used standalone, it uses its own resize hooks
+- The hair patch now requires Custom Jobs to be enabled first (`needs: CustomJobs` dependency)
 
 ## Mar 13 Update
 
-### New Dark Theme — WARP0716
-- New icons, recommend stamps, and editor font
-- Original themes available as "Classic" and "Classic_Dark" in the style dropdown
-
-### Custom Jobs — Complete
+### Custom Jobs — Initial Release
 - Full rewrite of the Custom Jobs patch for the 07-16 client — all 10 phases working
 - Job names, sprite paths, palettes, head sprites, and display names all driven by Lua files
 - Palette and head sprite tables expanded to support up to 10,000 custom job classes
 - Display names loaded at runtime via Lua C API (bypasses broken CLua::CallScriptFunction in 07-16)
 - Custom job sprites render correctly in character select, creation, and in-game
-- See the [Custom Jobs Guide](docs/CustomJobs/CUSTOM_JOBS_GUIDE.html) or [online version](https://legacygamers.net/docs/public/customjobs/) for setup instructions
-- Patch renamed to "Enable Custom Jobs (Reforged)"
 - Example sprite, IMF, and icon files included in `docs/CustomJobs/example/`
+
+### New Dark Theme — WARP0716
+- New icons, recommend stamps, and editor font
+- Original themes available as "Classic" and "Classic_Dark" in the style dropdown
 
 ## Mar 12 Update
 

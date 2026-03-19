@@ -1,7 +1,7 @@
 --[[
 ****************************************************************************
 *                                                                          *
-*   Copyright (C) 2021-2023 Neo-Mind                                       *
+*   Copyright (C) 2021-2022 Neo-Mind                                       *
 *                                                                          *
 *   This file is a part of WARP project (specific to RO clients)           *
 *                                                                          *
@@ -33,11 +33,11 @@
 
 --[[
 
-(�`��`�.��.���`�.��.���`�.��.���`�.��.����)
+( `  ` .  .   ` .  .   ` .  .   ` .  .    )
 ( \                                     / )
  ( ) Default set of job names - unisex ( )
   (/                                   \)
-   (.���`�.��.���`�.��.���`�.��.���`�.�)
+   (.   ` .  .   ` .  .   ` .  .   ` . )
 
 ]]--
 
@@ -228,11 +228,11 @@ PCNames =
 
 --[[
 
-(�`��`�.��.���`�.��.���`�.��.���`�.��.���`���)
+( `  ` .  .   ` .  .   ` .  .   ` .  .   `   )
 ( \                                        / )
  ( ) Unisex name overrides for Langtype 0 ( )
   (/                                      \)
-   (.���`�.��.���`�.��.���`�.��.���`�.��.�)
+   (.   ` .  .   ` .  .   ` .  .   ` .  . )
 
 ]]--
 
@@ -241,33 +241,33 @@ PCNames.LT_0 =
 	--------------------------
 	-- Extended 2nd Classes --
 	--------------------------
-	[PCIds.STAR_GLAD]    = "��������",
-	[PCIds.SOUL_LINKER]  = "�ҿ︵Ŀ",
+	[PCIds.STAR_GLAD]    = "        ",
+	[PCIds.SOUL_LINKER]  = " ҿ︵Ŀ",
 
 	-------------------------------
 	-- Baby Extended 2nd Classes --
 	-------------------------------
-	[PCIds.STAR_GLAD_B]    = "���������Ĺ�",
-	[PCIds.SOUL_LINKER_B]  = "�ҿ︵Ŀ�Ĺ�",
+	[PCIds.STAR_GLAD_B]    = "         Ĺ ",
+	[PCIds.SOUL_LINKER_B]  = " ҿ︵Ŀ Ĺ ",
 
 	--------------------------
 	-- Extended 3rd Classes --
 	--------------------------
-	[PCIds.SOUL_REAPER]    = "�ҿ︮��",
+	[PCIds.SOUL_REAPER]    = " ҿ︮  ",
 
 	-------------------------------
 	-- Baby Extended 3rd Classes --
 	-------------------------------
-	[PCIds.SOUL_REAPER_B]  = "�ҿ︮���Ĺ�",
+	[PCIds.SOUL_REAPER_B]  = " ҿ︮   Ĺ ",
 }
 
 --[[
 
-(�`��`�.��.���`�.��.���`�.��.���`�.��.���`���)
+( `  ` .  .   ` .  .   ` .  .   ` .  .   `   )
 ( \                                        / )
  ( ) Unisex name overrides for Langtype 1 ( )
   (/                                      \)
-   (.���`�.��.���`�.��.���`�.��.���`�.��.�)
+   (.   ` .  .   ` .  .   ` .  .   ` .  . )
 
 ]]--
 
@@ -308,11 +308,11 @@ PCNames.LT_1 =
 
 --[[
 
-(�`��`�.��.���`�.��.���`�.��.���`�.��.���`���)
+( `  ` .  .   ` .  .   ` .  .   ` .  .   `   )
 ( \                                        / )
  ( ) Unisex name overrides for Langtype 2 ( )
   (/                                      \)
-   (.���`�.��.���`�.��.���`�.��.���`�.��.�)
+   (.   ` .  .   ` .  .   ` .  .   ` .  . )
 
 ]]--
 
@@ -326,11 +326,11 @@ PCNames.LT_2 =
 
 --[[
 
-(�`��`�.��.���`�.��.���`�.��.���`�.��.���`���)
+( `  ` .  .   ` .  .   ` .  .   ` .  .   `   )
 ( \                                        / )
  ( ) Unisex name overrides for Langtype 6 ( )
   (/                                      \)
-   (.���`�.��.���`�.��.���`�.��.���`�.��.�)
+   (.   ` .  .   ` .  .   ` .  .   ` .  . )
 
 ]]--
 
@@ -349,11 +349,11 @@ PCNames.LT_6 =
 
 --[[
 
-(�`��`�.��.���`�.��.���`�.��.���`�.��.���`���)
+( `  ` .  .   ` .  .   ` .  .   ` .  .   `   )
 ( \                                        / )
  ( ) Unisex name overrides for Langtype 7 ( )
   (/                                      \)
-   (.���`�.��.���`�.��.���`�.��.���`�.��.�)
+   (.   ` .  .   ` .  .   ` .  .   ` .  . )
 
 ]]--
 
@@ -369,11 +369,11 @@ PCNames.LT_7 =
 
 --[[
 
-(�`��`�.��.���`�.��.���`�.��.���`�.��.���`����)
+( `  ` .  .   ` .  .   ` .  .   ` .  .   `    )
 ( \                                         / )
  ( ) Unisex name overrides for Langtype 12 ( )
   (/                                       \)
-   (.���`�.��.���`�.��.���`�.��.���`�.��.��)
+   (.   ` .  .   ` .  .   ` .  .   ` .  .  )
 
 ]]--
 
@@ -416,11 +416,11 @@ PCNames.LT_12 =
 
 --[[
 
-(�`��`�.��.���`�.��.���`�.��.���`�.��.���`����)
+( `  ` .  .   ` .  .   ` .  .   ` .  .   `    )
 ( \                                         / )
  ( ) Unisex name overrides for Langtype 19 ( )
   (/                                       \)
-   (.���`�.��.���`�.��.���`�.��.���`�.��.��)
+   (.   ` .  .   ` .  .   ` .  .   ` .  .  )
 
 ]]--
 
@@ -439,11 +439,11 @@ PCNames.LT_19 =
 
 --[[
 
-(�`��`�.��.���`�.��.���`�.��.���`�.��.����)
+( `  ` .  .   ` .  .   ` .  .   ` .  .    )
 ( \                                     / )
  ( ) Default set of job names - female ( )
   (/                                   \)
-   (.���`�.��.���`�.��.���`�.��.���`�.�)
+   (.   ` .  .   ` .  .   ` .  .   ` . )
 
 ]]--
 
@@ -548,11 +548,11 @@ PCNames_F =
 
 --[[
 
-(�`��`�.��.���`�.��.���`�.��.���`�.��.���`���)
+( `  ` .  .   ` .  .   ` .  .   ` .  .   `   )
 ( \                                        / )
  ( ) Female name overrides for Langtype 0 ( )
   (/                                      \)
-   (.���`�.��.���`�.��.���`�.��.���`�.��.�)
+   (.   ` .  .   ` .  .   ` .  .   ` .  . )
 
 ]]--
 
@@ -561,26 +561,26 @@ PCNames_F.LT_0 =
 	--------------------------
 	-- Extended 1st Classes --
 	--------------------------
-	[PCIds.TAEKWON]  = "�±Ǽҳ�",
+	[PCIds.TAEKWON]  = " ±Ǽҳ ",
 
 	--------------------------
 	-- Extended 3rd Classes --
 	--------------------------
-	[PCIds.STAR_EMPEROR]   = "��ŸȲ��",
+	[PCIds.STAR_EMPEROR]   = "  ŸȲ  ",
 
 	-------------------------------
 	-- Baby Extended 3rd Classes --
 	-------------------------------
-	[PCIds.STAR_EMPEROR_B] = "��ŸȲ���Ĺ�",
+	[PCIds.STAR_EMPEROR_B] = "  ŸȲ   Ĺ ",
 }
 
 --[[
 
-(�`��`�.��.���`�.��.���`�.��.���`�.��.���`����)
+( `  ` .  .   ` .  .   ` .  .   ` .  .   `    )
 ( \                                         / )
  ( ) Female name overrides for Langtype 12 ( )
   (/                                       \)
-   (.���`�.��.���`�.��.���`�.��.���`�.��.��)
+   (.   ` .  .   ` .  .   ` .  .   ` .  .  )
 
 ]]--
 
@@ -619,11 +619,11 @@ PCNames_F.LT_12 =
 	[PCIds.PRIEST]     = "Sacerdotisa",
 	[PCIds.WIZARD]     = "Bruxa",
 	[PCIds.BLACKSMITH] = "Ferreira",
-	[PCIds.HUNTER]     = "Ca�adora",
-	[PCIds.ASSASSIN]   = "Mercen�ria",
-	[PCIds.CRUSADER]   = "Templ�ria",
+	[PCIds.HUNTER]     = "Ca adora",
+	[PCIds.ASSASSIN]   = "Mercen ria",
+	[PCIds.CRUSADER]   = "Templ ria",
 	[PCIds.MONK]       = "Monja",
-	[PCIds.SAGE]       = "S�bia",
+	[PCIds.SAGE]       = "S bia",
 	[PCIds.ROGUE]      = "Arruaceira",
 	[PCIds.DANCER]     = "Odalisca",
 
@@ -634,22 +634,22 @@ PCNames_F.LT_12 =
 	[PCIds.PRIEST_B]     = "Mini Sacerdotisa",
 	[PCIds.WIZARD_B]     = "Mini Bruxa",
 	[PCIds.BLACKSMITH_B] = "Mini Ferreira",
-	[PCIds.HUNTER_B]     = "Mini Ca�adora",
-	[PCIds.ASSASSIN_B]   = "Mini Mercen�ria",
-	[PCIds.CRUSADER_B]   = "Mini Templ�ria",
+	[PCIds.HUNTER_B]     = "Mini Ca adora",
+	[PCIds.ASSASSIN_B]   = "Mini Mercen ria",
+	[PCIds.CRUSADER_B]   = "Mini Templ ria",
 	[PCIds.MONK_B]       = "Mini Monja",
-	[PCIds.SAGE_B]       = "Mini S�bia",
+	[PCIds.SAGE_B]       = "Mini S bia",
 	[PCIds.ROGUE_B]      = "Mini Arruaceira",
 	[PCIds.DANCER_B]     = "Mini Odalisca",
 }
 
 --[[
 
-(�`��`�.��.���`�.��.���`�.��.���`�.��.���`����)
+( `  ` .  .   ` .  .   ` .  .   ` .  .   `    )
 ( \                                         / )
  ( ) Female name overrides for Langtype 19 ( )
   (/                                       \)
-   (.���`�.��.���`�.��.���`�.��.���`�.��.��)
+   (.   ` .  .   ` .  .   ` .  .   ` .  .  )
 
 ]]--
 
@@ -668,11 +668,11 @@ PCNames_F.LT_19 =
 
 --[[
 
-(�`��`�.��.���`�.��.���`�.��.���`�.�����)
+( `  ` .  .   ` .  .   ` .  .   ` .     )
 ( \                                   / )
  ( ) Default set of job names - male ( )
   (/                                 \)
-   (.���`�.��.���`�.��.���`�.��.���`�)
+   (.   ` .  .   ` .  .   ` .  .   ` )
 
 ]]--
 
@@ -714,7 +714,7 @@ PCNames_M =
 	------------------------------
 	-- Transcendent 2nd Classes --
 	------------------------------
-	[PCIds.HIGH_PRIEST] = "High Priest",
+	[PCIds.HIGH_PRIEST] = "High LOL",
 	[PCIds.HIGH_WIZARD] = "High Wizard",
 
 	[PCIds.CLOWN]       = "Clown",
@@ -777,11 +777,11 @@ PCNames_M =
 
 --[[
 
-(�`��`�.��.���`�.��.���`�.��.���`�.��.�����)
+( `  ` .  .   ` .  .   ` .  .   ` .  .     )
 ( \                                      / )
  ( ) Male name overrides for Langtype 0 ( )
   (/                                    \)
-   (.���`�.��.���`�.��.���`�.��.���`�.��)
+   (.   ` .  .   ` .  .   ` .  .   ` .  )
 
 ]]--
 
@@ -790,26 +790,26 @@ PCNames_M.LT_0 =
 	--------------------------
 	-- Extended 1st Classes --
 	--------------------------
-	[PCIds.TAEKWON]  = "�±Ǽҳ�",
+	[PCIds.TAEKWON]  = " ±Ǽҳ ",
 
 	--------------------------
 	-- Extended 3rd Classes --
 	--------------------------
-	[PCIds.STAR_EMPEROR]   = "��ŸȲ��",
+	[PCIds.STAR_EMPEROR]   = "  ŸȲ  ",
 
 	-------------------------------
 	-- Baby Extended 3rd Classes --
 	-------------------------------
-	[PCIds.STAR_EMPEROR_B] = "��ŸȲ���Ĺ�",
+	[PCIds.STAR_EMPEROR_B] = "  ŸȲ   Ĺ ",
 }
 
 --[[
 
-(�`��`�.��.���`�.��.���`�.��.���`�.��.�����)
+( `  ` .  .   ` .  .   ` .  .   ` .  .     )
 ( \                                      / )
  ( ) Male name overrides for Langtype 1 ( )
   (/                                    \)
-   (.���`�.��.���`�.��.���`�.��.���`�.��)
+   (.   ` .  .   ` .  .   ` .  .   ` .  )
 
 ]]--
 
@@ -838,11 +838,11 @@ PCNames_M.LT_1 =
 
 --[[
 
-(�`��`�.��.���`�.��.���`�.��.���`�.��.������)
+( `  ` .  .   ` .  .   ` .  .   ` .  .      )
 ( \                                       / )
  ( ) Male name overrides for Langtype 12 ( )
   (/                                     \)
-   (.���`�.��.���`�.��.���`�.��.���`�.��.)
+   (.   ` .  .   ` .  .   ` .  .   ` .  .)
 
 ]]--
 
@@ -881,11 +881,11 @@ PCNames_M.LT_12 =
 	[PCIds.PRIEST]     = "Sacerdote",
 	[PCIds.WIZARD]     = "Bruxo",
 	[PCIds.BLACKSMITH] = "Ferreiro",
-	[PCIds.HUNTER]     = "Ca�ador",
-	[PCIds.ASSASSIN]   = "Mercen�rio",
-	[PCIds.CRUSADER]   = "Templ�rio",
+	[PCIds.HUNTER]     = "Ca ador",
+	[PCIds.ASSASSIN]   = "Mercen rio",
+	[PCIds.CRUSADER]   = "Templ rio",
 	[PCIds.MONK]       = "Monge",
-	[PCIds.SAGE]       = "S�bio",
+	[PCIds.SAGE]       = "S bio",
 	[PCIds.ROGUE]      = "Arruaceiro",
 	[PCIds.BARD]       = "Bardo",
 
@@ -896,22 +896,22 @@ PCNames_M.LT_12 =
 	[PCIds.PRIEST_B]     = "Mini Sacerdote",
 	[PCIds.WIZARD_B]     = "Mini Bruxo",
 	[PCIds.BLACKSMITH_B] = "Mini Ferreiro",
-	[PCIds.HUNTER_B]     = "Mini Ca�ador",
-	[PCIds.ASSASSIN_B]   = "Mini Mercen�rio",
-	[PCIds.CRUSADER_B]   = "Mini Templ�rio",
+	[PCIds.HUNTER_B]     = "Mini Ca ador",
+	[PCIds.ASSASSIN_B]   = "Mini Mercen rio",
+	[PCIds.CRUSADER_B]   = "Mini Templ rio",
 	[PCIds.MONK_B]       = "Mini Monge",
-	[PCIds.SAGE_B]       = "Mini S�bio",
+	[PCIds.SAGE_B]       = "Mini S bio",
 	[PCIds.ROGUE_B]      = "Mini Arruaceiro",
 	[PCIds.BARD_B]       = "Mini Bardo",
 }
 
 --[[
 
-(�`��`�.��.���`�.��.���`�.��.���`�.��.������)
+( `  ` .  .   ` .  .   ` .  .   ` .  .      )
 ( \                                       / )
  ( ) Male name overrides for Langtype 19 ( )
   (/                                     \)
-   (.���`�.��.���`�.��.���`�.��.���`�.��.)
+   (.   ` .  .   ` .  .   ` .  .   ` .  .)
 
 ]]--
 
@@ -930,11 +930,11 @@ PCNames_M.LT_19 =
 
 --[[
 
-(�`��`�.��.���`�.��.���`�.��.���`�.��.���`�.��.���`�.����)
+( `  ` .  .   ` .  .   ` .  .   ` .  .   ` .  .   ` .    )
 ( \                                                    / )
  ( ) Inheritance table for mapping ids with same name ( )
   (/                                                  \)
-   (.���`�.��.���`�.��.���`�.��.���`�.��.���`�.��.���`)
+   (.   ` .  .   ` .  .   ` .  .   ` .  .   ` .  .   `)
 
 ]]--
 
@@ -1035,3 +1035,6 @@ PCNameInheritTbl =
 
 	[PCIds.IMPERIAL_MOUNT]  = PCIds.IMPERIAL_GUARD,
 }
+
+-- Custom job display names
+

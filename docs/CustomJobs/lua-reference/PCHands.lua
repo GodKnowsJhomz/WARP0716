@@ -1,7 +1,7 @@
 --[[
 ****************************************************************************
 *                                                                          *
-*   Copyright (C) 2021-2023 Neo-Mind                                       *
+*   Copyright (C) 2021-2022 Neo-Mind                                       *
 *                                                                          *
 *   This file is a part of WARP project (specific to RO clients)           *
 *                                                                          *
@@ -619,3 +619,6 @@ PCHandInheritTbl =
 	------------------------
 	[PCMounts.SUMM_MOUNT_B] = PCMounts.SUMM_MOUNT,
 }
+
+-- Custom job hand/weapon paths
+
