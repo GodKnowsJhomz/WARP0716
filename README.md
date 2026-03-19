@@ -66,7 +66,7 @@ You need these to set up a working client:
 1. **Client + Data GRF:** [Client+Data.grf](https://drive.google.com/file/d/1ugolNYp6vQE0Hzmwuj359LbgcwraiZgu/view?usp=drive_link) (December 4th, 2025) — Provided by Skylove
 2. **Translation Project:** [llchrisll/ROenglishRE](https://github.com/llchrisll/ROenglishRE/) — Use the ClientGenerator, last option **[24] 2025-01-22**
 3. **Client EXE:** [2025-07-16_Ragexe_175220998_clientinfo.zip](https://mirror2.romirrors.com/downloads/2025-07-16_Ragexe_175220998_clientinfo.zip) — Unpacked EXE, ready for WARP patching
-4. **WARP** — Apply patches from this repo
+4. **WARP** — Apply **Recommended** or use `profiles/community_recommended.yml` + your own patches
 
 Then create a `data/` folder or GRF with your server's custom content (JobInfo Lua files, job sprites, Prontera map files, etc.) and add it to `DATA.INI`. Enable the **DataFolderFirst** patch if using loose files in `data/`, or pack into a GRF.
 
@@ -74,7 +74,7 @@ Then create a `data/` folder or GRF with your server's custom content (JobInfo L
 
 ## Issues & Suggestions
 
-Found a bug or have a suggestion? Post it in the [Issues](https://github.com/CrazyBebop/WARP0716/issues) section.
+Found a bug or have a suggestion? Post it in the [Issues](https://github.com/CrazyBebop/WARP0716/issues) section or join the [Discord](https://discord.gg/34hFYPse).
 
 ## Donate
 
