@@ -1,5 +1,43 @@
 # WARP0716
 
+## Development Status — On Hold
+
+Development of WARP0716 is being placed on hold for the foreseeable future.
+
+**What's been accomplished:**
+- 43 recommended patches for the 2025-07-16 kRO Ragexe client
+- Custom Jobs system (Reforged)
+- EnableCustomFonts — fully rewritten to load .ttf fonts natively
+- Multi-connection clientinfo support
+- Cancel-to-exit on the service select screen
+- Allow65kHairs with full CustomJobs compatibility
+- …and plenty more improvements across the board
+
+**What this means for you:**
+Nothing changes on your end. The repository will remain available, all current patches will continue to work, and you're free to keep using WARP0716 as you have been. The only change is that active development (new patches, fixes, updates) will be paused for now.
+
+### What's next — Introducing FORGE
+
+Due to the limitations of WARP and the lack of source flexibility, development is shifting toward something bigger.
+
+**FORGE** is a modern, open-source replacement for legacy tools like WARP and NEMO — built from the ground up as a standalone desktop application that brings everything into one place:
+
+- Visual binary patcher with a clean, modern UI
+- Executable manager — download and update supported clients directly
+- Client file manager with delta patching for fast updates
+- Multi-server profiles — easily switch between different configs
+- Self-updating via GitHub Releases
+- Cross-platform support (Windows + Linux + MacOS)
+- Server-agnostic — any server can integrate via a simple manifest
+
+The goal is simple: make patching RO clients as painless and flexible as possible for server operators.
+
+More details, and a preview — coming soon.
+
+Thanks to everyone who's tested, reported issues, and helped shape WARP0716. Everything learned here is carrying forward into FORGE.
+
+---
+
 WARP patches for the 2025-07-16 client build. This build of WARP **only accepts the 2025-07-16 client EXE** — it will reject any other version.
 
 22 patches fixed, dead/incompatible patches removed, and all patch descriptions rewritten for the 07-16 client. If you find something off, please [open an issue](https://github.com/CrazyBebop/WARP0716/issues).
@@ -63,42 +101,6 @@ It is never required, but if you feel the need to contribute to the project fina
 **PayPal:** <a href="https://www.paypal.com/donate/?hosted_button_id=WW9FD6SLEZ5BN"><img src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" alt="Donate via PayPal"></a>
 
 Special thanks to everyone who has donated — your support keeps this project going.
-
-## Development Status — On Hold
-
-Development of WARP0716 is being placed on hold for the foreseeable future.
-
-**What's been accomplished:**
-- 43 recommended patches for the 2025-07-16 kRO Ragexe client
-- Custom Jobs system (Reforged)
-- EnableCustomFonts — fully rewritten to load .ttf fonts natively
-- Multi-connection clientinfo support
-- Cancel-to-exit on the service select screen
-- Allow65kHairs with full CustomJobs compatibility
-- …and plenty more improvements across the board
-
-**What this means for you:**
-Nothing changes on your end. The repository will remain available, all current patches will continue to work, and you're free to keep using WARP0716 as you have been. The only change is that active development (new patches, fixes, updates) will be paused for now.
-
-### What's next — Introducing FORGE
-
-Due to the limitations of WARP and the lack of source flexibility, development is shifting toward something bigger.
-
-**FORGE** is a modern, open-source replacement for legacy tools like WARP and NEMO — built from the ground up as a standalone desktop application that brings everything into one place:
-
-- Visual binary patcher with a clean, modern UI
-- Executable manager — download and update supported clients directly
-- Client file manager with delta patching for fast updates
-- Multi-server profiles — easily switch between different configs
-- Self-updating via GitHub Releases
-- Cross-platform support (Windows + Linux + MacOS)
-- Server-agnostic — any server can integrate via a simple manifest
-
-The goal is simple: make patching RO clients as painless and flexible as possible for server operators.
-
-More details, and a preview — coming soon.
-
-Thanks to everyone who's tested, reported issues, and helped shape WARP0716. Everything learned here is carrying forward into FORGE.
 
 ## Credits
 
